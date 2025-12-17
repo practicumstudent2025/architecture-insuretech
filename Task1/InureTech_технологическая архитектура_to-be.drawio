@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Страница — 1" id="uPqfUfK9BXmFhYstT3_y">
-        <mxGraphModel dx="1438" dy="513" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="670" dy="513" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -150,8 +150,11 @@
                 <mxCell id="IrM2Awbd6PGK45CEqTr7-95" value="Streaming replication&lt;br&gt;(RPO ≤ 15 min)" style="endArrow=block;html=1;rounded=0;strokeWidth=2;" parent="1" source="IrM2Awbd6PGK45CEqTr7-80" target="IrM2Awbd6PGK45CEqTr7-89" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
+                <mxCell id="6" value="&lt;div style=&quot;font-size: 12px;font-family:Arial;color:#000000;background-color:#d5e8d4;padding:8px;border:2px solid #82b366&quot;&gt;&lt;b&gt;Конфигурация Kubernetes:&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Выбор: Независимые кластеры в каждой зоне (AZ-1, AZ-2)&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Обоснование:&lt;/b&gt;&lt;br&gt;&amp;nbsp; • &lt;b&gt;Изоляция отказов:&lt;/b&gt; Отказ одного кластера не влияет на другой&lt;br&gt;&amp;nbsp; • &lt;b&gt;Независимое управление:&lt;/b&gt; Обновления и изменения в одной зоне не затрагивают другую&lt;br&gt;&amp;nbsp; • &lt;b&gt;Простота развёртывания:&lt;/b&gt; Не требуется настройка сетевой связности между зонами для etcd&lt;br&gt;&amp;nbsp; • &lt;b&gt;Соответствие RTO:&lt;/b&gt; При отказе зоны вторая зона продолжает работать без задержек на переключение&lt;br&gt;&amp;nbsp; • &lt;b&gt;Географическое распределение:&lt;/b&gt; Оптимально для обслуживания пользователей из разных регионов РФ&lt;br&gt;&lt;br&gt;&lt;b&gt;Альтернатива (растянутый кластер) отклонена:&lt;/b&gt;&lt;br&gt;&amp;nbsp; - Высокая задержка сети между зонами влияет на производительность etcd&lt;br&gt;&amp;nbsp; - Сложность управления и повышенный риск split-brain&lt;br&gt;&amp;nbsp; - Не требуется для текущих требований (99.9% доступности достигается независимыми кластерами)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="730" width="500" height="280" as="geometry"/>
+                </mxCell>
                 <mxCell id="5" value="&lt;div style=&quot;font-size: 12px;font-family:Arial;color:#000000;background-color:#fff2cc;padding:8px;border:2px solid #d6b656&quot;&gt;&lt;b&gt;Стратегия масштабирования и отказоустойчивости:&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;• Горизонтальное масштабирование (HPA):&lt;/b&gt;&lt;br&gt;&amp;nbsp; - Применяется для всех сервисов приложения&lt;br&gt;&amp;nbsp; - Автоматическое масштабирование подов&lt;br&gt;&amp;nbsp; - &lt;b&gt;Эффективнее для приложений:&lt;/b&gt; позволяет обрабатывать больше запросов, высокая доступность&lt;br&gt;&lt;br&gt;&lt;b&gt;• Вертикальное масштабирование:&lt;/b&gt;&lt;br&gt;&amp;nbsp; - Применяется для PostgreSQL БД&lt;br&gt;&amp;nbsp; - Увеличение ресурсов ВМ при необходимости&lt;br&gt;&amp;nbsp; - &lt;b&gt;Подходит для БД:&lt;/b&gt; упрощает управление состоянием, оптимально для реляционных БД&lt;br&gt;&lt;br&gt;&lt;b&gt;• Зоны безопасности:&lt;/b&gt;&lt;br&gt;&amp;nbsp; - &lt;b&gt;Да, требуется:&lt;/b&gt; 2 зоны доступности (AZ-1, AZ-2)&lt;br&gt;&amp;nbsp; - Полная изоляция отказов&lt;br&gt;&amp;nbsp; - Обеспечивает высокую отказоустойчивость&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
-                    <mxGeometry x="180" y="1120" width="500" height="200" as="geometry"/>
+                    <mxGeometry x="120" y="1160" width="500" height="200" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
