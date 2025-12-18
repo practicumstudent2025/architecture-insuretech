@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="51zmUan4mFf6pz3q3UUt" name="InsureTech">
-        <mxGraphModel dx="858" dy="1682" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1716" dy="2195" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -14,9 +14,9 @@
                         <mxGeometry x="490" y="970" width="240" height="120" as="geometry"/>
                     </mxCell>
                 </object>
-                <object placeholders="1" c4Name="core-app" c4Type="Container" c4Technology="Kotlin, SpringBoot" c4Description="Монолитное приложение:&#10;• отображает данные о доступных страховых продуктах&#10;• оформляет новые страховки&#10;• отображает информацию о купленных страховках" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="uZ0quFO-MIEIE11IO5jD-3">
+                <object placeholders="1" c4Name="core-app" c4Type="Container" c4Technology="Kotlin, SpringBoot" c4Description="Монолитное приложение:&#10;• отображает данные о доступных страховых продуктах&#10;• оформляет новые страховки&#10;• отображает информацию о купленных страховках&#10;• использует Transactional Outbox для гарантии доставки событий" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="uZ0quFO-MIEIE11IO5jD-3">
                     <mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
-                        <mxGeometry x="490" y="700" width="240" height="120" as="geometry"/>
+                        <mxGeometry x="490" y="710" width="240" height="120" as="geometry"/>
                     </mxCell>
                 </object>
                 <object placeholders="1" c4Type="InsureTech Web" c4Container="Container" c4Technology="JavaScript, React" c4Description="Веб-приложение InsureTech" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Type%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Container%:&amp;nbsp;%c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="uZ0quFO-MIEIE11IO5jD-4">
@@ -87,14 +87,14 @@
                         <mxGeometry x="1640" y="330" width="240" height="120" as="geometry"/>
                     </mxCell>
                 </object>
-                <object c4Name="ins-product-aggregator" c4Type="Container" c4Technology="Kotlin, SpringBoot" c4Description="Сервис для интеграции со страховыми компаниями. Фоновое опрашивание, параллельная обработка (Circuit Breaker, Retry), graceful degradation" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" id="uZ0quFO-MIEIE11IO5jD-16">
+                <object c4Name="ins-product-aggregator" c4Type="Container" c4Technology="Kotlin, SpringBoot" c4Description="Сервис для интеграции со страховыми компаниями. Фоновое опрашивание, параллельная обработка (Circuit Breaker, Retry), graceful degradation. Публикует события для каждой компании отдельно. Источник истины для данных о продуктах" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" id="uZ0quFO-MIEIE11IO5jD-16">
                     <mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
                         <mxGeometry x="1070" y="310" width="240" height="120" as="geometry"/>
                     </mxCell>
                 </object>
                 <object placeholders="1" c4Type="Relationship" c4Technology="REST / SOAP / GraphQL" c4Description="Фоновое опрашивание, параллельная обработка &#10;(Circuit Breaker, Retry, только при изменениях)" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b style=&quot;color:#ff0000;&quot;&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="change-1.2-1.3-combined">
                     <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#ff0000;strokeWidth=3;endFill=1;strokeColor=#ff0000;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="uZ0quFO-MIEIE11IO5jD-16" target="uZ0quFO-MIEIE11IO5jD-11">
-                        <mxGeometry x="0.1" width="240" relative="1" as="geometry">
+                        <mxGeometry x="-0.1613" y="-20" width="240" relative="1" as="geometry">
                             <mxPoint x="1300" y="370" as="sourcePoint"/>
                             <mxPoint x="1640" y="390" as="targetPoint"/>
                             <mxPoint as="offset"/>
@@ -102,8 +102,8 @@
                     </mxCell>
                 </object>
                 <object placeholders="1" c4Type="Relationship" c4Technology="REST / SOAP / GraphQL" c4Description="Получение информации &#10;по продуктам и тарифам" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="uZ0quFO-MIEIE11IO5jD-17">
-                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="uZ0quFO-MIEIE11IO5jD-16" target="uZ0quFO-MIEIE11IO5jD-11" edge="1">
-                        <mxGeometry x="-0.25" width="240" relative="1" as="geometry">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="uZ0quFO-MIEIE11IO5jD-16" target="uZ0quFO-MIEIE11IO5jD-11" edge="1">
+                        <mxGeometry x="-0.0968" width="240" relative="1" as="geometry">
                             <mxPoint x="870" y="390" as="sourcePoint"/>
                             <mxPoint x="1110" y="390" as="targetPoint"/>
                             <mxPoint as="offset"/>
@@ -123,20 +123,16 @@
                         </mxGeometry>
                     </mxCell>
                 </object>
-                <object placeholders="1" c4Name="Kafka" c4Type="Container" c4Technology="Message Broker" c4Description="Message Broker для Event-Streaming. Публикует события об изменении продуктов. Поддерживает частичные обновления" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="change-1.1-kafka">
+                <object placeholders="1" c4Name="Kafka" c4Type="Container" c4Technology="Message Broker" c4Description="Message Broker для Event-Streaming. Единый канал распространения данных. Публикует события об изменении продуктов и создании страховок. Поддерживает частичные обновления" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="change-1.1-kafka">
                     <mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#ffcccc;fontColor=#000000;align=center;arcSize=10;strokeColor=#ff0000;strokeWidth=3;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-                        <mxGeometry x="770" y="860" width="240" height="120" as="geometry"/>
+                        <mxGeometry x="750" y="870" width="240" height="120" as="geometry"/>
                     </mxCell>
                 </object>
                 <object placeholders="1" c4Type="Relationship" c4Technology="Event Streaming" c4Description="Публикация событий &#10;об изменении продуктов" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b style=&quot;color:#ff0000;&quot;&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="change-1.1-pub">
-                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#ff0000;strokeWidth=3;endFill=1;strokeColor=#ff0000;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="uZ0quFO-MIEIE11IO5jD-16" target="change-1.1-kafka">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#ff0000;strokeWidth=3;endFill=1;strokeColor=#ff0000;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=0.75;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="uZ0quFO-MIEIE11IO5jD-16" target="change-1.1-kafka">
                         <mxGeometry width="240" relative="1" as="geometry">
                             <mxPoint x="1180" y="430" as="sourcePoint"/>
                             <mxPoint x="1180" y="500" as="targetPoint"/>
-                            <Array as="points">
-                                <mxPoint x="1180" y="620"/>
-                                <mxPoint x="890" y="620"/>
-                            </Array>
                         </mxGeometry>
                     </mxCell>
                 </object>
@@ -145,14 +141,6 @@
                         <mxGeometry width="240" relative="1" as="geometry">
                             <mxPoint x="1180" y="620" as="sourcePoint"/>
                             <mxPoint x="610" y="760" as="targetPoint"/>
-                        </mxGeometry>
-                    </mxCell>
-                </object>
-                <object placeholders="1" c4Type="Relationship" c4Technology="Event Streaming" c4Description="Подписка на события &#10;(обновление кэша)" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b style=&quot;color:#ff0000;&quot;&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="change-1.1-sub-settlement">
-                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#ff0000;strokeWidth=3;endFill=1;strokeColor=#ff0000;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="change-1.1-kafka" target="uZ0quFO-MIEIE11IO5jD-19">
-                        <mxGeometry width="240" relative="1" as="geometry">
-                            <mxPoint x="1300" y="560" as="sourcePoint"/>
-                            <mxPoint x="1180" y="700" as="targetPoint"/>
                         </mxGeometry>
                     </mxCell>
                 </object>
@@ -176,7 +164,7 @@
                 </object>
                 <object placeholders="1" c4Type="ins-comp-settlement-db" c4Container="Container" c4Technology="PostgreSQL" c4Description="БД используется для хранения данных об оформленных страховках и условиях взаиморасчётов с клиентами" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Type%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Container%:&amp;nbsp;%c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="uZ0quFO-MIEIE11IO5jD-28">
                     <mxCell style="shape=cylinder3;size=8.50981588924617;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;metaEdit=1;points=[[0.5,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.5,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];resizable=0;" parent="1" vertex="1">
-                        <mxGeometry x="1121" y="960" width="240" height="120" as="geometry"/>
+                        <mxGeometry x="1140" y="970" width="240" height="120" as="geometry"/>
                     </mxCell>
                 </object>
                 <object placeholders="1" c4Type="Relationship" c4Technology="TCP" c4Description="Работа с данными" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="uZ0quFO-MIEIE11IO5jD-29">
@@ -218,7 +206,38 @@
                         </mxGeometry>
                     </mxCell>
                 </object>
-                <object placeholders="1" c4Name="Платёжный сервис" c4Type="Software System" c4Description="Внешний платёжный сервис, через который осуществляется оплата страховок. Деньги уходят на счета страховых компаний" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="uZ0quFO-MIEIE11IO5jD-36">
+                <object placeholders="1" c4Name="Outbox Publisher" c4Type="Container" c4Technology="Kotlin, SpringBoot" c4Description="Публикует события из Outbox таблицы в Message Broker, гарантируя доставку даже при сбоях" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="change-2.2-outbox-publisher">
+                    <mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#ffcccc;fontColor=#000000;align=center;arcSize=10;strokeColor=#ff0000;strokeWidth=3;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
+                        <mxGeometry x="630" y="510" width="240" height="120" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Type="Relationship" c4Technology="Transactional Outbox" c4Description="Запись событий в Outbox &#10;в той же транзакции" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b style=&quot;color:#ff0000;&quot;&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="change-2.2-outbox-write">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#ff0000;strokeWidth=3;endFill=1;strokeColor=#ff0000;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="uZ0quFO-MIEIE11IO5jD-3" target="change-2.2-outbox-publisher">
+                        <mxGeometry width="240" relative="1" as="geometry">
+                            <mxPoint x="610" y="700" as="sourcePoint"/>
+                            <mxPoint x="610" y="500" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Type="Relationship" c4Technology="Event Streaming" c4Description="Публикация событий &#10;о создании страховок" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b style=&quot;color:#ff0000;&quot;&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="change-2.2-pub">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#ff0000;strokeWidth=3;endFill=1;strokeColor=#ff0000;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=0.25;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="change-2.2-outbox-publisher" target="change-1.1-kafka">
+                        <mxGeometry x="-0.3333" width="240" relative="1" as="geometry">
+                            <mxPoint x="830" y="620" as="sourcePoint"/>
+                            <mxPoint x="890" y="860" as="targetPoint"/>
+                            <mxPoint as="offset"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Type="Relationship" c4Technology="Event Streaming" c4Description="Подписка на события: &#10;обновление кэша, создание страховок" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b style=&quot;color:#ff0000;&quot;&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="change-1.1-2.2-sub-settlement">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#ff0000;strokeWidth=3;endFill=1;strokeColor=#ff0000;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="change-1.1-kafka" target="uZ0quFO-MIEIE11IO5jD-19">
+                        <mxGeometry x="0.2593" y="10" width="240" relative="1" as="geometry">
+                            <mxPoint x="1010" y="920" as="sourcePoint"/>
+                            <mxPoint x="1130" y="760" as="targetPoint"/>
+                            <mxPoint y="1" as="offset"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Name="Платёжный сервис" c4Type="Software System" c4Description="Внешний платёжный сервис, через который осуществляется оплата страховок. Деньги уходят на счета страховых компаний" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="uZ0quFO-MIEIE11IO5jD-36">
                     <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
                         <mxGeometry x="30" y="360" width="240" height="120" as="geometry"/>
                     </mxCell>
@@ -299,6 +318,18 @@
                 </mxCell>
                 <mxCell id="change-2.1-note" value="&lt;div style=&quot;font-size: 12px;font-family:Arial;color:#000000;background-color:#ffcccc;padding:8px;border:3px solid #ff0000&quot;&gt;&lt;b&gt;Изменение 2.1: Защита от каскадных сбоев (красным)&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Проблема:&lt;/b&gt; Если одна из страховых компаний недоступна, весь процесс агрегации может завершиться неудачей&lt;br&gt;&lt;br&gt;&lt;b&gt;Влияние:&lt;/b&gt; core-app не получает данные, ins-comp-settlement не может сформировать реестр, пользователи видят устаревшие данные&lt;br&gt;&lt;br&gt;&lt;b&gt;Решение:&lt;/b&gt; Внедрение механизма graceful degradation в ins-product-aggregator. При недоступности одной компании система продолжает работать с данными от доступных компаний. Использование Circuit Breaker для изоляции проблемных API. События публикуются для доступных данных, подписчики получают частичные обновления.&lt;br&gt;&lt;br&gt;&lt;b&gt;Преимущества:&lt;/b&gt;&lt;br&gt;&amp;nbsp; • Система продолжает работать при недоступности части компаний&lt;br&gt;&amp;nbsp; • Circuit Breaker изолирует проблемные API&lt;br&gt;&amp;nbsp; • Частичные обновления обеспечивают актуальность данных&lt;br&gt;&amp;nbsp; • Предотвращение каскадных сбоев и полной недоступности сервиса&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#ff0000;strokeWidth=3;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
                     <mxGeometry x="460" y="1500" width="600" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="change-2.2-note" value="&lt;div style=&quot;font-size: 12px;font-family:Arial;color:#000000;background-color:#ffcccc;padding:8px;border:3px solid #ff0000&quot;&gt;&lt;b&gt;Изменение 2.2: Гарантия доставки данных (красным)&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Проблема:&lt;/b&gt; При сбое запроса от ins-comp-settlement к core-app данные об оформленных страховках могут быть потеряны&lt;br&gt;&lt;br&gt;&lt;b&gt;Влияние:&lt;/b&gt; Невозможность формирования полного реестра для взаиморасчётов, финансовые потери&lt;br&gt;&lt;br&gt;&lt;b&gt;Решение:&lt;/b&gt; Использование паттерна Transactional Outbox в core-app. При создании страховки событие записывается в таблицу Outbox в той же транзакции, что и основная запись. Outbox Publisher публикует события из Outbox в Message Broker, гарантируя доставку даже при сбоях. ins-comp-settlement подписывается на события о создании страховок вместо периодических запросов.&lt;br&gt;&lt;br&gt;&lt;b&gt;Преимущества:&lt;/b&gt;&lt;br&gt;&amp;nbsp; • Гарантия доставки событий даже при сбоях&lt;br&gt;&amp;nbsp; • Атомарность записи данных и событий&lt;br&gt;&amp;nbsp; • Устранение периодических запросов&lt;br&gt;&amp;nbsp; • Надёжное формирование реестра для взаиморасчётов&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#ff0000;strokeWidth=3;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="1810" width="600" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="change-2.3-note" value="&lt;div style=&quot;font-size: 12px;font-family:Arial;color:#000000;background-color:#ffcccc;padding:8px;border:3px solid #ff0000&quot;&gt;&lt;b&gt;Изменение 2.3: Независимая обработка компаний (красным)&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Проблема:&lt;/b&gt; При недоступности хотя бы одной компании блокируется весь процесс&lt;br&gt;&lt;br&gt;&lt;b&gt;Влияние:&lt;/b&gt; Полная остановка обновления данных о продуктах&lt;br&gt;&lt;br&gt;&lt;b&gt;Решение:&lt;/b&gt; Реализация частичной обработки (graceful degradation). ins-product-aggregator обрабатывает запросы к доступным компаниям независимо, публикуя события для каждой компании отдельно. Подписчики получают обновления от доступных компаний, система продолжает работать частично.&lt;br&gt;&lt;br&gt;&lt;b&gt;Преимущества:&lt;/b&gt;&lt;br&gt;&amp;nbsp; • Независимая обработка каждой компании&lt;br&gt;&amp;nbsp; • Публикация событий для каждой компании отдельно&lt;br&gt;&amp;nbsp; • Система продолжает работать при недоступности части компаний&lt;br&gt;&amp;nbsp; • Частичная доступность данных вместо полной остановки&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#ff0000;strokeWidth=3;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="1090" y="1740" width="600" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="change-3.1-note" value="&lt;div style=&quot;font-size: 12px;font-family:Arial;color:#000000;background-color:#ccffcc;padding:8px;border:3px solid #00cc00&quot;&gt;&lt;b&gt;Изменение 3.1: Согласованность данных (зеленым)&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Проблема:&lt;/b&gt; Локальные кэши в core-app и ins-comp-settlement обновляются с разной частотой (15 минут vs 24 часа)&lt;br&gt;&lt;br&gt;&lt;b&gt;Влияние:&lt;/b&gt; Несогласованность данных между сервисами, пользователи видят разные тарифы&lt;br&gt;&lt;br&gt;&lt;b&gt;Решение:&lt;/b&gt; При переходе на Event-Streaming оба сервиса подписываются на одни и те же события об изменении продуктов. Обновление происходит одновременно для всех подписчиков при публикации события, обеспечивая согласованность данных в реальном времени.&lt;br&gt;&lt;br&gt;&lt;b&gt;Преимущества:&lt;/b&gt;&lt;br&gt;&amp;nbsp; • Одновременное обновление всех подписчиков&lt;br&gt;&amp;nbsp; • Согласованность данных в реальном времени&lt;br&gt;&amp;nbsp; • Устранение расхождений между сервисами&lt;br&gt;&amp;nbsp; • Единообразие данных для всех пользователей&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccffcc;strokeColor=#00cc00;strokeWidth=3;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="2120" width="600" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="change-3.2-note" value="&lt;div style=&quot;font-size: 12px;font-family:Arial;color:#000000;background-color:#ccffcc;padding:8px;border:3px solid #00cc00&quot;&gt;&lt;b&gt;Изменение 3.2: Единый источник истины (зеленым)&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Проблема:&lt;/b&gt; Данные хранятся в нескольких местах без синхронизации&lt;br&gt;&lt;br&gt;&lt;b&gt;Влияние:&lt;/b&gt; Расхождение данных между сервисами, сложность отладки&lt;br&gt;&lt;br&gt;&lt;b&gt;Решение:&lt;/b&gt; Message Broker становится единым каналом распространения данных. ins-product-aggregator является источником истины для данных о продуктах, публикуя события в Message Broker. Все подписчики получают одинаковые данные, что упрощает отладку и поддержку.&lt;br&gt;&lt;br&gt;&lt;b&gt;Преимущества:&lt;/b&gt;&lt;br&gt;&amp;nbsp; • Единый источник истины для данных о продуктах&lt;br&gt;&amp;nbsp; • Единый канал распространения данных&lt;br&gt;&amp;nbsp; • Все подписчики получают одинаковые данные&lt;br&gt;&amp;nbsp; • Упрощение отладки и поддержки&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccffcc;strokeColor=#00cc00;strokeWidth=3;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="1100" y="2020" width="600" height="180" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
