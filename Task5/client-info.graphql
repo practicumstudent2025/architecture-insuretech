@@ -1,0 +1,43 @@
+# GraphQL Schema для сервиса управления клиентскими данными (client-info)
+# Разработано на основе REST API контракта
+
+# Тип Client - основная информация о клиенте
+type Client {
+  id: ID!
+  name: String!
+  age: Int
+  # Связанные документы клиента
+  documents: [Document!]
+  # Информация о родственниках клиента
+  relatives: [Relative!]
+}
+
+# Тип Document - документы клиента
+type Document {
+  id: ID!
+  type: String!
+  number: String!
+  issueDate: String
+  expiryDate: String
+}
+
+# Тип Relative - информация о родственниках клиента
+type Relative {
+  id: ID!
+  relationType: String!
+  name: String!
+  age: Int
+}
+
+# Query - запросы для получения данных
+type Query {
+  # Получить информацию о клиенте по ID
+  # Позволяет гибко запрашивать только нужные поля и связанные данные
+  # Примеры запросов:
+  # 1. Только основная информация: { client(id: "123") { id name age } }
+  # 2. С документами: { client(id: "123") { id name documents { type number } } }
+  # 3. С родственниками: { client(id: "123") { id name relatives { name relationType } } }
+  # 4. Все данные: { client(id: "123") { id name age documents { id type number } relatives { id name relationType } } }
+  client(id: ID!): Client
+}
+
